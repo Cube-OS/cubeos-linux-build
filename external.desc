@@ -1,2 +1,2 @@
-name: KUBOS_LINUX
-desc: Kubos Linux BR2_EXTERNAL Tree
+name: CUBEOS_LINUX
+desc: CubeOS Linux BR2_EXTERNAL Tree

@@ -1,3 +1,12 @@
+CubeOS Linux Changelog
+======================
+
+v2.0 - June 2022
+------------------
+- Rebranding to CubeOS
+- Update to buildroot 2022.02.1
+
+LEGACY changelog
 Kubos Linux Changelog
 =====================
 

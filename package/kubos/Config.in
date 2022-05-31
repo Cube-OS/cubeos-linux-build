@@ -1,33 +1,33 @@
-menuconfig BR2_PACKAGE_KUBOS
-	bool "Kubos Packages"
+menuconfig BR2_PACKAGE_CUBEOS
+	bool "Cube-OS Packages"
 	default y
 	help
-		Enable Kubos services and libraries
+		Enable Cube-OS services and libraries
 
-if BR2_PACKAGE_KUBOS
+if BR2_PACKAGE_CUBEOS
 	
-	config BR2_KUBOS_VERSION
-		string "Kubos Source Version"
+	config BR2_CUBEOS_VERSION
+		string "Cube-OS Source Version"
 		default "master"
 		help
-			Release, tag, or branch of the Kubos repo to use when building Kubos
+			Release, tag, or branch of the Cube-OS repo to use when building Cube-OS
 			packages
 
     
-    source "$BR2_EXTERNAL_KUBOS_LINUX_PATH/package/kubos/kubos-core/Config.in"
-    source "$BR2_EXTERNAL_KUBOS_LINUX_PATH/package/kubos/kubos-monitor/Config.in"
-    source "$BR2_EXTERNAL_KUBOS_LINUX_PATH/package/kubos/kubos-app-api/Config.in"
-    source "$BR2_EXTERNAL_KUBOS_LINUX_PATH/package/kubos/kubos-hal-i2c/Config.in"
-    source "$BR2_EXTERNAL_KUBOS_LINUX_PATH/package/kubos/kubos-service-lib/Config.in"
+    source "$BR2_EXTERNAL_CUBEOS_LINUX_PATH/package/cubeos/cubeos-core/Config.in"
+    source "$BR2_EXTERNAL_CUBEOS_LINUX_PATH/package/cubeos/cubeos-monitor/Config.in"
+    source "$BR2_EXTERNAL_CUBEOS_LINUX_PATH/package/cubeos/cubeos-app-api/Config.in"
+    source "$BR2_EXTERNAL_CUBEOS_LINUX_PATH/package/cubeos/cubeos-hal-i2c/Config.in"
+    source "$BR2_EXTERNAL_CUBEOS_LINUX_PATH/package/cubeos/cubeos-service-lib/Config.in"
     
-    source "$BR2_EXTERNAL_KUBOS_LINUX_PATH/package/kubos/kubos-clyde-3g-eps/Config.in"
-    source "$BR2_EXTERNAL_KUBOS_LINUX_PATH/package/kubos/kubos-isis-ants/Config.in"  	
-    source "$BR2_EXTERNAL_KUBOS_LINUX_PATH/package/kubos/kubos-mai400/Config.in"
-    source "$BR2_EXTERNAL_KUBOS_LINUX_PATH/package/kubos/kubos-novatel-oem6/Config.in"
-    source "$BR2_EXTERNAL_KUBOS_LINUX_PATH/package/kubos/kubos-nsl-duplex/Config.in"
-    source "$BR2_EXTERNAL_KUBOS_LINUX_PATH/package/kubos/kubos-pumpkin-mcu/Config.in"
-    source "$BR2_EXTERNAL_KUBOS_LINUX_PATH/package/kubos/kubos-pumpkin-mcu-api/Config.in"
-    source "$BR2_EXTERNAL_KUBOS_LINUX_PATH/package/kubos/kubos-pumpkin-wdt/Config.in"
+    source "$BR2_EXTERNAL_CUBEOS_LINUX_PATH/package/cubeos/cubeos-clyde-3g-eps/Config.in"
+    source "$BR2_EXTERNAL_CUBEOS_LINUX_PATH/package/cubeos/cubeos-isis-ants/Config.in"  	
+    source "$BR2_EXTERNAL_CUBEOS_LINUX_PATH/package/cubeos/cubeos-mai400/Config.in"
+    source "$BR2_EXTERNAL_CUBEOS_LINUX_PATH/package/cubeos/cubeos-novatel-oem6/Config.in"
+    source "$BR2_EXTERNAL_CUBEOS_LINUX_PATH/package/cubeos/cubeos-nsl-duplex/Config.in"
+    source "$BR2_EXTERNAL_CUBEOS_LINUX_PATH/package/cubeos/cubeos-pumpkin-mcu/Config.in"
+    source "$BR2_EXTERNAL_CUBEOS_LINUX_PATH/package/cubeos/cubeos-pumpkin-mcu-api/Config.in"
+    source "$BR2_EXTERNAL_CUBEOS_LINUX_PATH/package/cubeos/cubeos-pumpkin-wdt/Config.in"
 
 endif
 

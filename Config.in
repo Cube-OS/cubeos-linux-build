@@ -1,3 +1,2 @@
-source "$BR2_EXTERNAL_KUBOS_LINUX_PATH/package/kubos/Config.in"
-source "$BR2_EXTERNAL_KUBOS_LINUX_PATH/package/python/Config.in"
-
+source "$BR2_EXTERNAL_CUBEOS_LINUX_PATH/package/cubeos/Config.in"
+source "$BR2_EXTERNAL_CUBEOS_LINUX_PATH/package/python/Config.in"

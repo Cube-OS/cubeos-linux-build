@@ -14,16 +14,16 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 #
-# Kubos Linux Boot Finalization
+# Cube-OS Linux Boot Finalization
 #
 
 # Update the U-Boot variables to indicate that we have successfully booted
-fw_setenv kubos_curr_tried 0
+fw_setenv cubeos_curr_tried 0
 fw_setenv bootcount 0
 sync
 
 # Make sure the default user's home directory exists
-mkdir -p /home/kubos
-chown -R kubos /home/kubos
+mkdir -p /home/cubeos
+chown -R cubeos /home/cubeos
 
 exit 0

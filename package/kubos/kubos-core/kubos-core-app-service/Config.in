@@ -1,34 +1,34 @@
-menuconfig BR2_PACKAGE_KUBOS_CORE_APP_SERVICE
+menuconfig BR2_PACKAGE_CUBEOS_CORE_APP_SERVICE
     bool "Application Service"
     default n
-    select BR2_PACKAGE_HAS_KUBOS_CORE_APP_SERVICE
+    select BR2_PACKAGE_HAS_CUBEOS_CORE_APP_SERVICE
     help
-        Include Kubos application service.
+        Include Cube-OS application service.
 
-if BR2_PACKAGE_KUBOS_CORE_APP_SERVICE
+if BR2_PACKAGE_CUBEOS_CORE_APP_SERVICE
 
-config BR2_KUBOS_CORE_APP_SERVICE_INIT_LVL
+config BR2_CUBEOS_CORE_APP_SERVICE_INIT_LVL
     int "App Service Init Level"
     default 90
     range 10 99
-    depends on BR2_PACKAGE_KUBOS_CORE_APP_SERVICE
+    depends on BR2_PACKAGE_CUBEOS_CORE_APP_SERVICE
     help
-        The initialization priority level of the Kubos application service.
+        The initialization priority level of the Cube-OS application service.
         The lower the number, the earlier the service is initialized.
 
-config BR2_KUBOS_CORE_APP_SERVICE_RESTART_COUNT
+config BR2_CUBEOS_CORE_APP_SERVICE_RESTART_COUNT
     int "App Service Restart Limit"
     default 3
-    depends on BR2_PACKAGE_KUBOS_CORE_APP_SERVICE
+    depends on BR2_PACKAGE_CUBEOS_CORE_APP_SERVICE
     depends on BR2_PACKAGE_MONIT
     help
         The maximum number of times the service should be restarted within the timeframe
-        specified by BR2_KUBOS_CORE_APP_SERVICE_RESTART_CYCLES if it goes down
+        specified by BR2_CUBEOS_CORE_APP_SERVICE_RESTART_CYCLES if it goes down
 
-config BR2_KUBOS_CORE_APP_SERVICE_RESTART_CYCLES
+config BR2_CUBEOS_CORE_APP_SERVICE_RESTART_CYCLES
     int "App Service Restart Limit Timeframe"
     default 10
-    depends on BR2_PACKAGE_KUBOS_CORE_APP_SERVICE
+    depends on BR2_PACKAGE_CUBEOS_CORE_APP_SERVICE
     depends on BR2_PACKAGE_MONIT
     help
         The number of Monit monitoring cycles in which the maximum number of service restarts
@@ -37,32 +37,32 @@ config BR2_KUBOS_CORE_APP_SERVICE_RESTART_CYCLES
         The resulting maximum timeframe in which the restarts must occur can be calculated by
         multiplying this number by the length of a single Monit sleep cycle (60 seconds)
 
-config BR2_KUBOS_CORE_APP_SERVICE_IP
+config BR2_CUBEOS_CORE_APP_SERVICE_IP
     string "App Service IP Address"
     default "0.0.0.0"
-    depends on BR2_PACKAGE_KUBOS_CORE_APP_SERVICE
+    depends on BR2_PACKAGE_CUBEOS_CORE_APP_SERVICE
     help
         The IP address which the app service should use to receive GraphQL requests
         
-config BR2_KUBOS_CORE_APP_SERVICE_PORT
+config BR2_CUBEOS_CORE_APP_SERVICE_PORT
     int "App Service Port"
     default 8000
-    depends on BR2_PACKAGE_KUBOS_CORE_APP_SERVICE
+    depends on BR2_PACKAGE_CUBEOS_CORE_APP_SERVICE
     help
         The port which the app service should use to receive GraphQL requests
 
-config BR2_KUBOS_CORE_APP_SERVICE_REGISTRY
+config BR2_CUBEOS_CORE_APP_SERVICE_REGISTRY
     string "App Service Registry Directory"
-    default "/home/system/kubos/apps"
-    depends on BR2_PACKAGE_KUBOS_CORE_APP_SERVICE
+    default "/home/system/cubeos/apps"
+    depends on BR2_PACKAGE_CUBEOS_CORE_APP_SERVICE
     help
         The directory which the app service should use to store all registry entries
 
 endif
 
-config BR2_PACKAGE_HAS_KUBOS_CORE_APP_SERVICE
+config BR2_PACKAGE_HAS_CUBEOS_CORE_APP_SERVICE
     bool
 
-config BR2_PACKAGE_PROVIDES_KUBOS_CORE_APP_SERVICE
+config BR2_PACKAGE_PROVIDES_CUBEOS_CORE_APP_SERVICE
     string
-    default "kubos"
+    default "cubeos"

@@ -1,78 +1,78 @@
 ###############################################
 #
-# Kubos Master Package
+# Cube-OS Master Package
 #
-# This package downloads the Kubos repo,
+# This package downloads the Cube-OS repo,
 # globally links all the modules, and sets the
-# target for the subsequent Kubos child 
+# target for the subsequent Cube-OS child 
 # packages
 #
 ###############################################
-KUBOS_LICENSE = Apache-2.0
-KUBOS_LICENSE_FILES = LICENSE
-KUBOS_SITE = git://github.com/Cube-OS/cubeOS
-KUBOS_PROVIDES = kubos-mai400
-KUBOS_INSTALL_STAGING = YES
-KUBOS_TARGET_FINALIZE_HOOKS += KUBOS_CREATE_CONFIG
+CUBEOS_LICENSE = Apache-2.0
+CUBEOS_LICENSE_FILES = LICENSE
+CUBEOS_SITE = git://github.com/Cube-OS/cubeOS
+CUBEOS_PROVIDES = cubeos-mai400
+CUBEOS_INSTALL_STAGING = YES
+CUBEOS_TARGET_FINALIZE_HOOKS += CUBEOS_CREATE_CONFIG
 
-KUBOS_CONFIG_FRAGMENT_DIR = $(STAGING_DIR)/etc/kubos
-KUBOS_CONFIG_FILE = $(TARGET_DIR)/etc/kubos-config.toml
+CUBEOS_CONFIG_FRAGMENT_DIR = $(STAGING_DIR)/etc/cubeos
+CUBEOS_CONFIG_FILE = $(TARGET_DIR)/etc/cubeos-config.toml
 
-VERSION = $(call qstrip,$(BR2_KUBOS_VERSION))
+VERSION = $(call qstrip,$(BR2_CUBEOS_VERSION))
 # If the version specified is a branch name, we need to go fetch the SHA1 for the branch's HEAD
-ifeq ($(shell git ls-remote --heads $(KUBOS_SITE) $(VERSION) | wc -l), 1)
-	KUBOS_VERSION := $(shell git ls-remote $(KUBOS_SITE) $(VERSION) | cut -c1-8)
+ifeq ($(shell git ls-remote --heads $(CUBEOS_SITE) $(VERSION) | wc -l), 1)
+	CUBEOS_VERSION := $(shell git ls-remote $(CUBEOS_SITE) $(VERSION) | cut -c1-8)
 else
-	KUBOS_VERSION = $(VERSION)
+	CUBEOS_VERSION = $(VERSION)
 endif
 
-KUBOS_BR_TARGET = $(lastword $(subst /, ,$(dir $(BR2_LINUX_KERNEL_CUSTOM_DTS_PATH))))
-ifeq ($(KUBOS_BR_TARGET),at91sam9g20isis)
-	KUBOS_TARGET = kubos-linux-isis-gcc
+CUBEOS_BR_TARGET = $(lastword $(subst /, ,$(dir $(BR2_LINUX_KERNEL_CUSTOM_DTS_PATH))))
+ifeq ($(CUBEOS_BR_TARGET),at91sam9g20isis)
+	CUBEOS_TARGET = cubeos-linux-isis-gcc
 	CARGO_TARGET = armv5te-unknown-linux-gnueabi
-else ifeq ($(KUBOS_BR_TARGET),pumpkin-mbm2)
-	KUBOS_TARGET = kubos-linux-pumpkin-mbm2-gcc
+else ifeq ($(CUBEOS_BR_TARGET),pumpkin-mbm2)
+	CUBEOS_TARGET = cubeos-linux-pumpkin-mbm2-gcc
 	CARGO_TARGET = arm-unknown-linux-gnueabihf
-else ifeq ($(KUBOS_BR_TARGET),beaglebone-black)
-	KUBOS_TARGET = kubos-linux-beaglebone-gcc
+else ifeq ($(CUBEOS_BR_TARGET),beaglebone-black)
+	CUBEOS_TARGET = cubeos-linux-beaglebone-gcc
 	CARGO_TARGET = arm-unknown-linux-gnueabihf
 else
-	KUBOS_TARGET = unknown
+	CUBEOS_TARGET = unknown
 endif
 
 CARGO_OUTPUT_DIR = target/$(CARGO_TARGET)/release
 
-define KUBOS_INSTALL_STAGING_CMDS
-	mkdir -p $(KUBOS_CONFIG_FRAGMENT_DIR)
+define CUBEOS_INSTALL_STAGING_CMDS
+	mkdir -p $(CUBEOS_CONFIG_FRAGMENT_DIR)
 endef
 
-define KUBOS_INSTALL_TARGET_CMDS
+define CUBEOS_INSTALL_TARGET_CMDS
 	mkdir -p $(TARGET_DIR)/etc/monit.d
 endef
 
-define KUBOS_CREATE_CONFIG
+define CUBEOS_CREATE_CONFIG
 	# Collect all config fragment files into the final master config.toml file
-	cat $(KUBOS_CONFIG_FRAGMENT_DIR)/* > $(KUBOS_CONFIG_FILE)
+	cat $(CUBEOS_CONFIG_FRAGMENT_DIR)/* > $(CUBEOS_CONFIG_FILE)
 endef
 
 
-kubos-deepclean:
-	rm -fR $(BUILD_DIR)/kubos-*
-	rm -f $(DL_DIR)/kubos-*
-	rm -f $(TARGET_DIR)/etc/init.d/*kubos*
-	rm -f $(TARGET_DIR)/etc/monit.d/kubos*
-	rm -fR $(KUBOS_CONFIG_FRAGMENT_DIR)
-	rm -fR $(BUILD_DIR)/../staging/etc/kubos
-	rm -f $(KUBOS_CONFIG_FILE)
+cubeos-deepclean:
+	rm -fR $(BUILD_DIR)/cubeos-*
+	rm -f $(DL_DIR)/cubeos-*
+	rm -f $(TARGET_DIR)/etc/init.d/*cubeos*
+	rm -f $(TARGET_DIR)/etc/monit.d/cubeos*
+	rm -fR $(CUBEOS_CONFIG_FRAGMENT_DIR)
+	rm -fR $(BUILD_DIR)/../staging/etc/cubeos
+	rm -f $(CUBEOS_CONFIG_FILE)
 
-kubos-fullclean: kubos-clean-for-reconfigure kubos-dirclean
-	rm -f $(BUILD_DIR)/kubos-$(KUBOS_VERSION)/.stamp_downloaded
-	rm -f $(DL_DIR)/kubos-$(KUBOS_VERSION).tar.gz
-	rm -fR $(KUBOS_CONFIG_FRAGMENT_DIR)
-	rm -fR $(BUILD_DIR)/../staging/etc/kubos
-	rm -f $(KUBOS_CONFIG_FILE)
+cubeos-fullclean: cubeos-clean-for-reconfigure cubeos-dirclean
+	rm -f $(BUILD_DIR)/cubeos-$(CUBEOS_VERSION)/.stamp_downloaded
+	rm -f $(DL_DIR)/cubeos-$(CUBEOS_VERSION).tar.gz
+	rm -fR $(CUBEOS_CONFIG_FRAGMENT_DIR)
+	rm -fR $(BUILD_DIR)/../staging/etc/cubeos
+	rm -f $(CUBEOS_CONFIG_FILE)
 
-kubos-clean: kubos-clean-for-rebuild
-	rm -fR $(BUILD_DIR)/kubos-$(KUBOS_VERSION)/target
+cubeos-clean: cubeos-clean-for-rebuild
+	rm -fR $(BUILD_DIR)/cubeos-$(CUBEOS_VERSION)/target
 
 $(eval $(generic-package))
