@@ -1,6 +1,0 @@
-config BR2_PACKAGE_PYTHON_RX
-	bool "python-rx"
-	help
-	  Reactive Extensions (Rx) for Python.
-
-	  http://reactivex.io

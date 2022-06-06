@@ -10,8 +10,9 @@
 ###############################################
 CUBEOS_LICENSE = Apache-2.0
 CUBEOS_LICENSE_FILES = LICENSE
-CUBEOS_SITE = git://github.com/Cube-OS/cubeOS
-CUBEOS_PROVIDES = cubeos-mai400
+CUBEOS_SITE = https://github.com/Cube-OS/cubeOS
+CUBEOS_SITE_METHOD = git
+# CUBEOS_PROVIDES = cubeos-mai400
 CUBEOS_INSTALL_STAGING = YES
 CUBEOS_TARGET_FINALIZE_HOOKS += CUBEOS_CREATE_CONFIG
 
