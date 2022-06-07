@@ -14,23 +14,22 @@ if BR2_PACKAGE_CUBEOS
 			packages
 
     
-    source "$BR2_EXTERNAL_CUBEOS_LINUX_PATH/package/cubeos/cubeos-core/Config.in"
-    source "$BR2_EXTERNAL_CUBEOS_LINUX_PATH/package/cubeos/cubeos-monitor/Config.in"
+    # source "$BR2_EXTERNAL_CUBEOS_LINUX_PATH/package/cubeos/cubeos-core/Config.in"
+    # source "$BR2_EXTERNAL_CUBEOS_LINUX_PATH/package/cubeos/cubeos-monitor/Config.in"
     # source "$BR2_EXTERNAL_CUBEOS_LINUX_PATH/package/cubeos/cubeos-app-api/Config.in"
     # source "$BR2_EXTERNAL_CUBEOS_LINUX_PATH/package/cubeos/cubeos-hal-i2c/Config.in"
-    source "$BR2_EXTERNAL_CUBEOS_LINUX_PATH/package/cubeos/cubeos-service-lib/Config.in"
+    # source "$BR2_EXTERNAL_CUBEOS_LINUX_PATH/package/cubeos/cubeos-service-lib/Config.in"
     
-    source "$BR2_EXTERNAL_CUBEOS_LINUX_PATH/package/cubeos/cubeos-clyde-3g-eps/Config.in"
-    source "$BR2_EXTERNAL_CUBEOS_LINUX_PATH/package/cubeos/cubeos-isis-ants/Config.in"  	
-    source "$BR2_EXTERNAL_CUBEOS_LINUX_PATH/package/cubeos/cubeos-mai400/Config.in"
-    source "$BR2_EXTERNAL_CUBEOS_LINUX_PATH/package/cubeos/cubeos-novatel-oem6/Config.in"
-    source "$BR2_EXTERNAL_CUBEOS_LINUX_PATH/package/cubeos/cubeos-nsl-duplex/Config.in"
-    source "$BR2_EXTERNAL_CUBEOS_LINUX_PATH/package/cubeos/cubeos-pumpkin-mcu/Config.in"
-    source "$BR2_EXTERNAL_CUBEOS_LINUX_PATH/package/cubeos/cubeos-pumpkin-mcu-api/Config.in"
-    source "$BR2_EXTERNAL_CUBEOS_LINUX_PATH/package/cubeos/cubeos-pumpkin-wdt/Config.in"
-
-    source "$BR2_EXTERNAL_CUBEOS_LINUX_PATH/package/cubeos/cubeos-set-sd/Config.in"
-    source "$BR2_EXTERNAL_CUBEOS_LINUX_PATH/package/cubeos/cubeos-get-sd/Config.in"
+    # source "$BR2_EXTERNAL_CUBEOS_LINUX_PATH/package/cubeos/cubeos-clyde-3g-eps/Config.in"
+    # source "$BR2_EXTERNAL_CUBEOS_LINUX_PATH/package/cubeos/cubeos-isis-ants/Config.in"  	
+    # source "$BR2_EXTERNAL_CUBEOS_LINUX_PATH/package/cubeos/cubeos-mai400/Config.in"
+    # source "$BR2_EXTERNAL_CUBEOS_LINUX_PATH/package/cubeos/cubeos-novatel-oem6/Config.in"
+    # source "$BR2_EXTERNAL_CUBEOS_LINUX_PATH/package/cubeos/cubeos-nsl-duplex/Config.in"
+    # source "$BR2_EXTERNAL_CUBEOS_LINUX_PATH/package/cubeos/cubeos-pumpkin-mcu/Config.in"
+    # source "$BR2_EXTERNAL_CUBEOS_LINUX_PATH/package/cubeos/cubeos-pumpkin-mcu-api/Config.in"
+    # source "$BR2_EXTERNAL_CUBEOS_LINUX_PATH/package/cubeos/cubeos-pumpkin-wdt/Config.in"
+    # source "$BR2_EXTERNAL_CUBEOS_LINUX_PATH/package/cubeos/cubeos-set-sd/Config.in"
+    # source "$BR2_EXTERNAL_CUBEOS_LINUX_PATH/package/cubeos/cubeos-get-sd/Config.in"
 
 endif
 
