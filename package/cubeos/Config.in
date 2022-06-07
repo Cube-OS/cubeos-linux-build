@@ -29,5 +29,8 @@ if BR2_PACKAGE_CUBEOS
     source "$BR2_EXTERNAL_CUBEOS_LINUX_PATH/package/cubeos/cubeos-pumpkin-mcu-api/Config.in"
     source "$BR2_EXTERNAL_CUBEOS_LINUX_PATH/package/cubeos/cubeos-pumpkin-wdt/Config.in"
 
+    source "$BR2_EXTERNAL_CUBEOS_LINUX_PATH/package/cubeos/cubeos-set-sd/Config.in"
+    source "$BR2_EXTERNAL_CUBEOS_LINUX_PATH/package/cubeos/cubeos-get-sd/Config.in"
+
 endif
 

@@ -4,7 +4,7 @@ jobs:
       docker:
         - image: cubeos/cubeos-dev:1.20.0
       environment:
-        KUBOS_BOARD: beaglebone-black
+        CUBEOS_BOARD: beaglebone-black
       working_directory: ~/project/cubeos-linux-build
       steps:
         - checkout
@@ -25,7 +25,7 @@ jobs:
       docker:
         - image: cubeos/cubeos-dev:1.20.0
       environment:
-        KUBOS_BOARD: pumpkin-mbm2
+        CUBEOS_BOARD: pumpkin-mbm2
       working_directory: ~/project/cubeos-linux-build
       steps:
         - checkout
@@ -46,7 +46,7 @@ jobs:
       docker:
         - image: cubeos/cubeos-dev:1.20.0
       environment:
-        KUBOS_BOARD: at91sam9g20isis
+        CUBEOS_BOARD: at91sam9g20isis
       working_directory: ~/project/cubeos-linux-build
       steps:
         - checkout
