@@ -106,31 +106,31 @@ if [ "${package}" -gt "1" ]; then
   echo '\nBuilding the Kubos Linux base package'
   export PATH=$PATH:/usr/bin/iobc_toolchain/usr/bin
   echo $PATH
-  ./cubeos-package.sh -b ${branch} -v base
+  ./kubos-package.sh -b ${branch} -v base
 fi
 
 if [ "${package}" -gt "0" ]; then
-  mkdir /tmp-cubeos
+  mkdir /tmp-kubos
 
   echo '\nCopying the base package to the upgrade partition'
-  mount ${device}7 /tmp-cubeos
-  cp kpack-base.itb /tmp-cubeos
+  mount ${device}7 /tmp-kubos
+  cp kpack-base.itb /tmp-kubos
   sleep 1
   umount ${device}7
 
   echo '\nCopying the kernel to the boot partition'
-  mount ${device}5 /tmp-cubeos
-  cp cubeos-kernel.itb /tmp-cubeos/kernel
+  mount ${device}5 /tmp-kubos
+  cp kubos-kernel.itb /tmp-kubos/kernel
   sleep 1
   umount ${device}5
 
   echo '\nCopying the rootfs to the rootfs partition'
-  mount ${device}6 /tmp-cubeos
-  tar -xf ${BASE_DIR}/images/rootfs.tar -C /tmp-cubeos
+  mount ${device}6 /tmp-kubos
+  tar -xf ${BASE_DIR}/images/rootfs.tar -C /tmp-kubos
   sleep 1
   umount ${device}6
 
-  rmdir /tmp-cubeos
+  rmdir /tmp-kubos
 fi
 
 echo '\nSD card formatted successfully'

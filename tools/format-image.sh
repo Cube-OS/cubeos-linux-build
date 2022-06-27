@@ -30,7 +30,7 @@
 #
  
 device=""
-image=cubeos-linux.img
+image=kubos-linux.img
 branch=1.2
 package=0
 size=3800
@@ -148,37 +148,37 @@ if [ "${package}" -gt "1" ]; then
   echo '\nBuilding the Kubos Linux base package'
   export PATH=$PATH:/usr/bin/iobc_toolchain/usr/bin
   echo $PATH
-  ./cubeos-package.sh -k -b ${branch} -v base -o ${output} -t ${target}
+  ./kubos-package.sh -k -b ${branch} -v base -o ${output} -t ${target}
 fi
 
 if [ "${package}" -gt "0" ]; then
-  mkdir -p /tmp-cubeos
+  mkdir -p /tmp-kubos
 
   echo '\nCopying the base package to the upgrade partition'
-  mount /dev/loop0p7 /tmp-cubeos
-  cp kpack-base.itb /tmp-cubeos/
+  mount /dev/loop0p7 /tmp-kubos
+  cp kpack-base.itb /tmp-kubos/
   sleep 1
   umount /dev/loop0p7
 
   echo '\nCopying the kernel to the boot partition'
-  mount /dev/loop0p5 /tmp-cubeos
-  cp cubeos-kernel.itb /tmp-cubeos/kernel
+  mount /dev/loop0p5 /tmp-kubos
+  cp kubos-kernel.itb /tmp-kubos/kernel
   sleep 1
   umount /dev/loop0p5
 
   echo '\nCopying the rootfs to the rootfs partition'
-  mount /dev/loop0p6 /tmp-cubeos
-  tar -xf ${BASE_DIR}/images/rootfs.tar -C /tmp-cubeos
+  mount /dev/loop0p6 /tmp-kubos
+  tar -xf ${BASE_DIR}/images/rootfs.tar -C /tmp-kubos
   sleep 1
   umount /dev/loop0p6
 
   echo '\nCreating the user partition overlay'
-  mount /dev/loop0p1 /tmp-cubeos
-  cp ../common/user-overlay/* /tmp-cubeos -R
+  mount /dev/loop0p1 /tmp-kubos
+  cp ../common/user-overlay/* /tmp-kubos -R
   sleep 1
   umount /dev/loop0p1
 
-  rmdir /tmp-cubeos
+  rmdir /tmp-kubos
 fi
 
 echo '\nCleaning up ramdisk'
