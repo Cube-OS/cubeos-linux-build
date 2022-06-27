@@ -2,10 +2,10 @@ version: 2
 jobs:
     build_bbb:
       docker:
-        - image: cubeos/cubeos-dev:1.20.0
+        - image: kubos/kubos-dev:1.20.0
       environment:
-        CUBEOS_BOARD: beaglebone-black
-      working_directory: ~/project/cubeos-linux-build
+        KUBOS_BOARD: beaglebone-black
+      working_directory: ~/project/kubos-linux-build
       steps:
         - checkout
         - run: ./build.sh | tee full_build.log
@@ -13,8 +13,8 @@ jobs:
             path: full_build.log
             destination: Beaglebone-Black/full_build.log
         - store_artifacts:
-            path: ../buildroot-2019.02.2/output/images/cubeos-linux.tar.gz
-            destination: Beaglebone-Black/cubeos-linux.tar.gz
+            path: ../buildroot-2019.02.2/output/images/kubos-linux.tar.gz
+            destination: Beaglebone-Black/kubos-linux.tar.gz
         - store_artifacts:
             path: ../buildroot-2019.02.2/output/images/aux-sd.tar.gz
             destination: Beaglebone-Black/aux-sd.tar.gz
@@ -23,10 +23,10 @@ jobs:
             destination: Beaglebone-Black/kpack-base.itb
     build_mbm2:
       docker:
-        - image: cubeos/cubeos-dev:1.20.0
+        - image: kubos/kubos-dev:1.20.0
       environment:
-        CUBEOS_BOARD: pumpkin-mbm2
-      working_directory: ~/project/cubeos-linux-build
+        KUBOS_BOARD: pumpkin-mbm2
+      working_directory: ~/project/kubos-linux-build
       steps:
         - checkout
         - run: ./build.sh | tee full_build.log
@@ -34,8 +34,8 @@ jobs:
             path: full_build.log
             destination: Pumpkin-MBM2/full_build.log
         - store_artifacts:
-            path: ../buildroot-2019.02.2/output/images/cubeos-linux.tar.gz
-            destination: Pumpkin-MBM2/cubeos-linux.tar.gz
+            path: ../buildroot-2019.02.2/output/images/kubos-linux.tar.gz
+            destination: Pumpkin-MBM2/kubos-linux.tar.gz
         - store_artifacts:
             path: ../buildroot-2019.02.2/output/images/aux-sd.tar.gz
             destination: Pumpkin-MBM2/aux-sd.tar.gz
@@ -44,10 +44,10 @@ jobs:
             destination: Pumpkin-MBM2/kpack-base.itb
     build_iobc:
       docker:
-        - image: cubeos/cubeos-dev:1.20.0
+        - image: kubos/kubos-dev:1.20.0
       environment:
-        CUBEOS_BOARD: at91sam9g20isis
-      working_directory: ~/project/cubeos-linux-build
+        KUBOS_BOARD: at91sam9g20isis
+      working_directory: ~/project/kubos-linux-build
       steps:
         - checkout
         - run: ./build.sh | tee full_build.log
@@ -55,8 +55,8 @@ jobs:
             path: full_build.log
             destination: iOBC/full_build.log
         - store_artifacts:
-            path: ../buildroot-2019.02.2/output/images/cubeos-linux.tar.gz
-            destination: iOBC/cubeos-linux.tar.gz
+            path: ../buildroot-2019.02.2/output/images/kubos-linux.tar.gz
+            destination: iOBC/kubos-linux.tar.gz
         - store_artifacts:
             path: ../buildroot-2019.02.2/output/images/at91sam9g20isis.dtb
             destination: iOBC/at91sam9g20isis.dtb

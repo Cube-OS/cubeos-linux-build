@@ -1,4 +1,0 @@
-config BR2_PACKAGE_CUBEOS_SET_SD
-	bool
-	default y
-	depends on BR2_CUBEOS_SD_SWITCH
