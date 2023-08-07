@@ -2,7 +2,7 @@
 
 set -e -o pipefail
 
-buildroot_tar="buildroot-2022.02.1.tar.gz"
+buildroot_tar="buildroot-2019.02.2.tar.gz"
 buildroot_url="https://buildroot.uclibc.org/downloads/$buildroot_tar"
 
 board="$CUBEOS_BOARD"
