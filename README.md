@@ -53,35 +53,35 @@ To set up a build environment and build Cube-OS Linux:
 
 Create a new parent folder to contain the build environment
 
-    $ mkdir cubeos-linux
+    mkdir cubeos-linux
 
 Enter the new folder
 
-    $ cd cubeos-linux
+    cd cubeos-linux
   
 Download BuildRoot-2019.02.2 (more current versions of BuildRoot may work as well,
 but all testing has been done against 2019.02.2)
 
 .. note:: All Cube-OS documentation will refer to v2019.02.2, which is the latest version of the LTS release at the time of this writing.
 
-    $ wget https://buildroot.uclibc.org/downloads/buildroot-2019.02.2.tar.gz && tar xvzf buildroot-2019.02.2.tar.gz && rm buildroot-2019.02.2.tar.gz
+    wget https://buildroot.uclibc.org/downloads/buildroot-2019.02.2.tar.gz && tar xvzf buildroot-2019.02.2.tar.gz && rm buildroot-2019.02.2.tar.gz
   
 Pull the cubeos-linux-build repo
 
-    $ git clone http://github.com/Cube-OS/cubeos-linux-build
+    git clone http://github.com/Cube-OS/cubeos-linux-build
   
 Move into the buildroot directory
 
-    $ cd buildroot-2019.02.2
+    cd buildroot-2019.02.2
   
 Point BuildRoot to the external cubeos-linux-build folder and tell it which configuration you want to run (config files are located in
 cubeos-linux-build/configs)
 
-    $ make BR2_EXTERNAL=../cubeos-linux-build {board}_defconfig
+    make BR2_EXTERNAL=../cubeos-linux-build {board}_defconfig
   
 Build everything
 
-    $ sudo make
+    sudo make
   
 The full build process will take a while.  Running on a Linux VM, it took about an hour.  Running in native Linux, it took about
 twenty minutes.  Once this build process has completed once, you can run other BuildRoot commands to rebuild only certain sections
